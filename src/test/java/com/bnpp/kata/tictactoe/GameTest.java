@@ -53,4 +53,19 @@ class GameTest {
         assertTrue(game.isValidInput("1"));
         assertTrue(game.isValidInput("9"));
     }
+
+    @Test
+    @DisplayName("Should Switch the player")
+    void switchPlayer() {
+        Game game = new Game();
+
+        game.setCurrentPlayer("X");
+        assertEquals("X", game.getCurrentPlayer());
+
+        game.switchPlayer();
+        assertEquals("O", game.getCurrentPlayer());
+
+        game.switchPlayer();
+        assertEquals("X", game.getCurrentPlayer());
+    }
 }

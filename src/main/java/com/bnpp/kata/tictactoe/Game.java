@@ -33,6 +33,11 @@ public class Game {
         return Arrays.stream(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"}).anyMatch(x -> x.equals(input));
     }
 
+    void switchPlayer() {
+        setCurrentPlayer("X".equals(currentPlayer) ? "O" : "X");
+    }
+
+
     public String[][] getTicTacToe() {
         return ticTacToe;
     }
