@@ -41,5 +41,16 @@ class GameTest {
         assertEquals(0, movesAfter.size());
     }
 
+    @Test
+    @DisplayName("Should validate the input")
+    void isValidInput() {
+        Game game = new Game();
 
+        assertFalse(game.isValidInput("66"));
+        assertFalse(game.isValidInput("ab"));
+        assertFalse(game.isValidInput("#@"));
+
+        assertTrue(game.isValidInput("1"));
+        assertTrue(game.isValidInput("9"));
+    }
 }

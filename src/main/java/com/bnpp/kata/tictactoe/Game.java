@@ -1,12 +1,10 @@
 package com.bnpp.kata.tictactoe;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.bnpp.kata.tictactoe.Constants.*;
 
-@Component
 public class Game {
     private String[][] ticTacToe;
     private String currentPlayer;
@@ -29,6 +27,10 @@ public class Game {
 
         // moves for a fresh start
         moves = new ArrayList();
+    }
+
+    boolean isValidInput(String input) {
+        return Arrays.stream(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"}).anyMatch(x -> x.equals(input));
     }
 
     public String[][] getTicTacToe() {
