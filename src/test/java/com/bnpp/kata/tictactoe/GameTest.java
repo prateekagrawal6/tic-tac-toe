@@ -68,4 +68,52 @@ class GameTest {
         game.switchPlayer();
         assertEquals("X", game.getCurrentPlayer());
     }
+
+    @Test
+    @DisplayName("Should valid place on board correct by position (1-9)")
+    void placeAtBoard() {
+        Game game = new Game();
+        game.initializeGame();
+
+        game.placeAtBoard("1");
+        assertEquals("X", game.getTicTacToe()[0][0]);
+        assertEquals(1, game.getMoves().size());
+
+        game.placeAtBoard("2");
+        assertEquals("X", game.getTicTacToe()[0][1]);
+        assertEquals(2, game.getMoves().size());
+
+        game.placeAtBoard("3");
+        assertEquals("X", game.getTicTacToe()[0][2]);
+        assertEquals(3, game.getMoves().size());
+
+        game.placeAtBoard("4");
+        assertEquals("X", game.getTicTacToe()[1][0]);
+        assertEquals(4, game.getMoves().size());
+
+        game.placeAtBoard("5");
+        assertEquals("X", game.getTicTacToe()[1][1]);
+        assertEquals(5, game.getMoves().size());
+
+        game.placeAtBoard("6");
+        assertEquals("X", game.getTicTacToe()[1][2]);
+        assertEquals(6, game.getMoves().size());
+
+        game.placeAtBoard("7");
+        assertEquals("X", game.getTicTacToe()[2][0]);
+        assertEquals(7, game.getMoves().size());
+
+        game.placeAtBoard("8");
+        assertEquals("X", game.getTicTacToe()[2][1]);
+        assertEquals(8, game.getMoves().size());
+
+        game.placeAtBoard("9");
+        assertEquals("X", game.getTicTacToe()[2][2]);
+        assertEquals(9, game.getMoves().size());
+
+        game.placeAtBoard("10");
+        assertEquals(9, game.getMoves().size());
+
+    }
+
 }

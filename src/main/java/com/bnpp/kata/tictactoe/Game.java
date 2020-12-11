@@ -37,6 +37,39 @@ public class Game {
         setCurrentPlayer("X".equals(currentPlayer) ? "O" : "X");
     }
 
+    void placeAtBoard(String inputPosition) {
+        moves.add(inputPosition);
+        switch (inputPosition) {
+            case "1":
+                ticTacToe[0][0] = currentPlayer;
+                break;
+            case "2":
+                ticTacToe[0][1] = currentPlayer;
+                break;
+            case "3":
+                ticTacToe[0][2] = currentPlayer;
+                break;
+            case "4":
+                ticTacToe[1][0] = currentPlayer;
+                break;
+            case "5":
+                ticTacToe[1][1] = currentPlayer;
+                break;
+            case "6":
+                ticTacToe[1][2] = currentPlayer;
+                break;
+            case "7":
+                ticTacToe[2][0] = currentPlayer;
+                break;
+            case "8":
+                ticTacToe[2][1] = currentPlayer;
+                break;
+            case "9":
+                ticTacToe[2][2] = currentPlayer;
+                break;
+            default: moves.remove(inputPosition);
+        }
+    }
 
     public String[][] getTicTacToe() {
         return ticTacToe;
