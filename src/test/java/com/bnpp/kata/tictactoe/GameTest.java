@@ -211,4 +211,28 @@ class GameTest {
         game.checkWinner();
         assertEquals("X", game.getWinner());
     }
+
+    @Test
+    @DisplayName("Should find out correct winner-5")
+    void checkWinner5() {
+        Game game = new Game();
+        game.initializeGame();
+
+        game.placeAtBoard("9");
+        game.switchPlayer();
+        game.placeAtBoard("8");
+        game.switchPlayer();
+        game.placeAtBoard("7");
+        game.switchPlayer();
+        game.placeAtBoard("6");
+        game.switchPlayer();
+        game.placeAtBoard("5");
+        game.switchPlayer();
+        game.placeAtBoard("4");
+        game.switchPlayer();
+        game.placeAtBoard("3");
+
+        game.checkWinner();
+        assertEquals("X", game.getWinner());
+    }
 }
