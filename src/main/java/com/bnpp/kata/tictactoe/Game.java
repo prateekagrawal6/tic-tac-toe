@@ -29,6 +29,11 @@ public class Game {
         moves = new ArrayList();
     }
 
+    void run() {
+        // show default empty board.
+        showBoard();
+    }
+
     boolean isValidInput(String input) {
         return Arrays.stream(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9"}).anyMatch(x -> x.equals(input));
     }
@@ -92,6 +97,16 @@ public class Game {
         if (winner == "_")
             winner = null;
     }
+
+    void showBoard() {
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                System.out.print(ticTacToe[row][col] + (col != 2 ? " | " : ""));
+            }
+            System.out.println();
+        }
+    }
+
 
 
     public String[][] getTicTacToe() {

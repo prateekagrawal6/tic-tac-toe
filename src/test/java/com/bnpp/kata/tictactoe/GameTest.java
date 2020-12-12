@@ -1,13 +1,24 @@
 package com.bnpp.kata.tictactoe;
 
+import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
+    private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUp() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
 
     @Test
     @DisplayName("Should initialize game variables with default values")
@@ -290,5 +301,14 @@ class GameTest {
         game.checkWinner();
         assertNull(game.getWinner());
         assertEquals(9, game.getMoves().size());
+    }
+
+    @Test
+    @DisplayName("Should display current tic tac toe board")
+    void showBoard() {
+        Game game = new Game();
+        game.initializeGame();
+        game.showBoard();
+        Assert.assertTrue(outputStreamCaptor.toString().contains("_ | _ | _"));
     }
 }
