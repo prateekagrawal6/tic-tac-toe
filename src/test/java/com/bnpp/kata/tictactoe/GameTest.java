@@ -261,4 +261,34 @@ class GameTest {
         game.checkWinner();
         assertEquals("O", game.getWinner());
     }
+
+    @Test
+    @DisplayName("Should Draw when players are out of moves")
+    void checkDraw() {
+        Game game = new Game();
+        game.initializeGame();
+
+
+        game.placeAtBoard("1");
+        game.switchPlayer();
+        game.placeAtBoard("3");
+        game.switchPlayer();
+        game.placeAtBoard("9");
+        game.switchPlayer();
+        game.placeAtBoard("5");
+        game.switchPlayer();
+        game.placeAtBoard("7");
+        game.switchPlayer();
+        game.placeAtBoard("8");
+        game.switchPlayer();
+        game.placeAtBoard("2");
+        game.switchPlayer();
+        game.placeAtBoard("4");
+        game.switchPlayer();
+        game.placeAtBoard("6");
+
+        game.checkWinner();
+        assertNull(game.getWinner());
+        assertEquals(9, game.getMoves().size());
+    }
 }
