@@ -116,4 +116,22 @@ class GameTest {
 
     }
 
+    @Test
+    @DisplayName("Should check and return player who won the game")
+    void checkWinner() {
+        Game game = new Game();
+        game.initializeGame();
+
+
+        game.placeAtBoard("1");
+        game.placeAtBoard("2");
+
+        game.checkWinner();
+        assertNull(game.getWinner());
+
+        game.placeAtBoard("3");
+        game.checkWinner();
+
+        assertEquals("X", game.getWinner());
+    }
 }

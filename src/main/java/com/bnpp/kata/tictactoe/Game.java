@@ -71,6 +71,29 @@ public class Game {
         }
     }
 
+    void checkWinner() {
+        if (ticTacToe[0][0].equals(ticTacToe[0][1]) && ticTacToe[0][0].equals(ticTacToe[0][2])) {
+            winner = ticTacToe[0][0];
+        } else if (ticTacToe[0][2].equals(ticTacToe[1][2]) && ticTacToe[0][2].equals(ticTacToe[2][2])) {
+            winner = ticTacToe[0][2];
+        } else if (ticTacToe[2][0].equals(ticTacToe[2][1]) && ticTacToe[2][0].equals(ticTacToe[2][2])) {
+            winner = ticTacToe[2][0];
+        } else if (ticTacToe[2][0].equals(ticTacToe[1][0]) && ticTacToe[2][0].equals(ticTacToe[0][0])) {
+            winner = ticTacToe[2][0];
+        } else if (ticTacToe[2][0].equals(ticTacToe[1][1]) && ticTacToe[2][0].equals(ticTacToe[0][2])) {
+            winner = ticTacToe[2][0];
+        } else if (ticTacToe[0][0].equals(ticTacToe[1][1]) && ticTacToe[0][0].equals(ticTacToe[2][2])) {
+            winner = ticTacToe[0][0];
+        } else if (ticTacToe[0][1].equals(ticTacToe[1][1]) && ticTacToe[0][1].equals(ticTacToe[2][1])) {
+            winner = ticTacToe[0][1];
+        } else if (ticTacToe[1][0].equals(ticTacToe[1][1]) && ticTacToe[1][0].equals(ticTacToe[1][2])) {
+            winner = ticTacToe[1][0];
+        }
+        if (winner == "_")
+            winner = null;
+    }
+
+
     public String[][] getTicTacToe() {
         return ticTacToe;
     }
